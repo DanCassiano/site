@@ -3,7 +3,7 @@
 	/**
 	* Controle
 	*/
-	Abstract class Controle
+	abstract class Controle
 	{
 		
 		private $read;
@@ -11,15 +11,23 @@
 		private $titulo;
 
 		private $lang;
-	
 
-		public function __get( $dados ){
-			var_dump( $dados );
-			return $this[$dados];
+		public $view;
+	
+		private function getToken()
+		{
+			return  md5(uniqid(rand(), true));
 		}
 
-		public function __call($method,$args){
-      	
-        	// throw new Exception("Este Metodo {$method} nao existe!");
-        } 
+
+		public function render()
+		{
+			ob_start();
+			require $this->view;
+			$pagina = ob_get_contents();
+			$pagina = str_replace('</body>', '<input value="'.$this->getToken().'"></body>', $pagina);
+			ob_end_clean();
+			echo $pagina;
+		}
+		
 	}

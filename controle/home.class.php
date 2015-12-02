@@ -8,9 +8,10 @@ class Home extends Controle
 	function __construct()
 	{
 		$this->titulo = "Bem Vindo";
+		$this->view = APP_ROOT."/view/home.php";
 	}
 
 	public function init(){		
-		require APP_ROOT."/view/home.php";
+		
 	}
 }

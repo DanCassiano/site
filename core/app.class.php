@@ -48,15 +48,14 @@ class App
 
 		$classe = "Home";
 		
-		if( !empty( self::$rota[1] ) ){
-		
+		if( !empty( self::$rota[1] ) ){		
 			$classe = ucfirst( self::$rota[1] );
 			if( !class_exists( $classe ))
 				$classe = "QuatroZeroQuatro";
-
 		}
 
 		self::$pagina = new $classe;
-		self::$pagina->init();		
+		self::$pagina->init();	
+		self::$pagina->render();	
 	}
 }
