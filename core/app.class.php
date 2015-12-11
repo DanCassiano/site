@@ -23,6 +23,12 @@ class App
 		/** PASTA COM OS CONTROLES */
 		self::registrar('PASTA_CONTROLE', dirname(__DIR__) . DS . "controle" );	
 
+		/** PASTA COM OS ASSETS */
+		self::registrar('PASTA_ASSETS', dirname(__DIR__) . DS . "assets" );	
+
+		/** PASTA COM OS ASSETS */
+		self::registrar('URL_ASSETS', "http://localhost/site/assets" );	
+
 		self::getControle();	
 
 	}
