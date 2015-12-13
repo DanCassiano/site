@@ -35,7 +35,15 @@
 			if( !defined('URL_ASSETS'))
 				return;
 
-			return URL_ASSETS . "/". ( strpos( $asset, ".css") ? "/css/" : "/js/" ). $asset;
+			$arquivo = URL_ASSETS . "/";
+
+			if( strpos( $asset, ".css") == true  ){
+				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$arquivo}css/{$asset}\">";				
+			}
+			elseif( strpos( $asset, ".js") == true ){
+				echo "<script type=\"text/javascript\" src=\"{$arquivo}js/{$asset}\" ></script>";
+			}
+			return $this;			
 		}
 		
 	}

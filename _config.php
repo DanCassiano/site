@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	
 	/** caminho padrao da aplicacao	 */
 	define("APP_ROOT", __DIR__ ) or die("Não foi possivel setar o caminho do APP");
@@ -23,3 +24,5 @@
 	
 	/** HOST*/
 	define("HOST", "localhost");
+
+	include "help/site.php";
