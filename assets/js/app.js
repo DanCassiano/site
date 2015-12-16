@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
 	// }
 
 	$("#cd-timeline").TimeLine({
-		url: "projeto/busca/timeline/"
+		url: "projeto/busca/timeline"
 	});
 });
 
