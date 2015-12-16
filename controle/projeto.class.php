@@ -11,7 +11,9 @@ class Projeto extends Controle
 		$this->view = APP_ROOT."/view/Projeto.php";
 	}
 
-	public function init(){		
+	public function init(){
 		
+		if( empty( Session::get('login') ) )
+			$this->gotoControle('home');
 	}
 }

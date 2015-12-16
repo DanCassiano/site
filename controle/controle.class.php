@@ -45,5 +45,9 @@
 			}
 			return $this;			
 		}
+
+		protected function gotoControle( $controle ) {
+			header("location: $controle");
+		}
 		
 	}
