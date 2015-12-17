@@ -25,4 +25,8 @@
 	/** HOST*/
 	define("HOST", "localhost");
 
+	define("URL_DIR", "http://localhost/site");
+
+	// session_set_save_handler
+
 	include "help/site.php";
