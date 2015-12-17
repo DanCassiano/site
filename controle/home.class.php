@@ -13,6 +13,6 @@ class Home extends Controle
 
 	public function init(){		
 		if( !empty( Session::get('login') ) )
-			header("location: projeto");
+			header("location: dashboard");
 	}
 }

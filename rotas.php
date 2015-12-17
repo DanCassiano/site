@@ -10,5 +10,6 @@
 	if( $controle == "autenticar" ) {
 
 		Session::set("login", "asdasdasdsd");
+		header("location: ".URL_DIR."/index.php");
  	}
  

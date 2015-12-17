@@ -29,7 +29,7 @@ class App
 		/** PASTA COM OS ASSETS */
 		self::registrar('URL_ASSETS', "http://localhost/site/assets" );	
 
-		self::getControle();	
+		self::getControle();
 
 	}
 
@@ -54,14 +54,14 @@ class App
 
 		$classe = "Home";
 		
-		if( !empty( self::$rota[1] ) ){		
+		if( !empty( self::$rota[1] ) && self::$rota[1] != "index.php" ){
 			$classe = ucfirst( self::$rota[1] );
 			if( !class_exists( $classe ))
 				$classe = "QuatroZeroQuatro";
 		}
 
 		self::$pagina = new $classe;
-		self::$pagina->init();	
-		self::$pagina->render();	
+		self::$pagina->init();
+		self::$pagina->render();
 	}
 }
