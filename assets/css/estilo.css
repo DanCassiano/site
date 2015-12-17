@@ -1,0 +1,71 @@
+
+
+
+.janela-board {
+	width: 320px;
+	margin: 2px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+/*Acoes do usuario*/
+
+.card.card-user {
+	position: fixed;
+	top: 5px;
+	right: 10px;
+	z-index: 999999999;
+
+}
+
+.card.card-opcoes {
+	position: absolute;
+	top: 45px;
+	right: 5px;
+	z-index: 999999999;
+}
+
+
+.card.card-user img{
+	border-radius: 20px;
+}
+/*Acoes do usuario*/
+
+.janela-dashboard {
+	width:90%;
+	margin: 60px auto;
+}
+
+
+/*Menu*/
+.card-menu.off-canvas {
+	position: fixed;
+	top: 0;
+	left: -260px;
+	width: 250px;
+	height: 100%;
+	z-index: 9999999999;
+	-webkit-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+.card-menu.on-canvas {
+	position: fixed;
+	top: 0;
+	width: 250px;
+	height: 100%;
+	z-index: 9999999999;
+	left: 0;
+	-webkit-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+a.trigger-menu {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+/*Menu*/

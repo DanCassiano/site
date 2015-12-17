@@ -9,8 +9,9 @@
 }
 
 body {
-	background-image: url(../imagens/background-tile.png);
-	background-color: #4285F4;
+	/*background-image: url(../imagens/background-tile.png);*/
+	/*background-color: #4285F4;*/
+	background-color: #55ACEE;
 }
 
 
@@ -60,6 +61,71 @@ body {
 }
 
 /*Janelas*/
+
+
+/*Cards*/
+.card {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 1px;
+}
+
+.card.card-menu {
+	padding: 0px 10px;
+	border: 1px solid #e0e0e0;
+	background-color: #fff;
+}
+
+.card-opcoes {
+	display: none;
+	background-color: #fff;
+	border: 1px solid #e0e0e0;
+	border: none;
+	border-radius: 1px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
+}
+
+.card-opcoes a {
+	text-decoration: none;
+	color: #000;
+	padding: 5px 10px;
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.card-opcoes hr {
+	margin-left: -5px;
+	margin-right: -5px;
+	border:1px solid #e0e0e0;
+	border-bottom: none;
+}
+
+
+.card header,
+.card .titulo {
+	background-color: rgb(249,249,252);
+	display: inline-block;
+	width: 100%;
+	padding: 6px 12px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #e0e0e0;
+	line-height: 28px;
+	text-align: left;
+	left: 0;
+	right: 0;
+}
+
+.card .corpo {
+	padding: 10px;
+}
+
+
+
+/*Cards*/
 
 
 /*Campos*/
@@ -164,11 +230,4 @@ input[type=button] {
 .login {
 	width: 320px;
 	margin: 10% auto;
-}
-
-.janela-board {
-	width: 320px;
-	margin: 2px;
-	display: inline-block;
-	vertical-align: top;
 }
