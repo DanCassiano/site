@@ -1,6 +1,6 @@
 <?php
 	$user = new User();
-	$d = $user->getUserLogin();	
+	$d = $user->getUserLogin();
 ?>
 <div class="card card-user " data-drop="true">
 	<a href="#usuario" title="<?php echo $d['usuario'] ?>">

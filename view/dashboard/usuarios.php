@@ -3,7 +3,7 @@
 		Usuários
 		
 		<div class="controle right">
-			<a href="#novo"><i class="fa fa-plus"></i>Adicionar</a>
+			<a href="#novo" data-trigger='#dialogoUser' ><i class="fa fa-plus"></i>Adicionar</a>
 		</div>
 		<div class="controle right">
 			<input type="text" placeholder="Buscar...">
@@ -45,5 +45,35 @@
 				 ?>
 			</tbody>
 		</table>
+	</div>
+</div>
+
+<div class="card card-padrao" id="dialogoUser" data-dialogo=true>
+	<header>
+		Usuário
+		<div class="controle right">
+			<a href="#fechar"><i class="fa fa-times-circle-o fa-3"></i></a>
+		</div>
+	</header>
+	<div class="corpo">
+		<div class="row">
+			<label for="inputUsuaro">Usuário</label>
+			<input type="text" id="inputUsuaro">
+		</div>
+		<div class="row">
+			<label for="inputEmail">E-mail</label>
+			<input type="text" id="inputEmail">
+		</div>
+		<div class="row">
+			<label for="inputSenha">Senha</label>
+			<input type="text" id="inputSenha">
+		</div>
+		<div class="row">
+			<label for="inputConfirmaSenha">Confirmar senha</label>
+			<input type="text" id="inputConfirmaSenha">
+		</div>
+	</div>
+	<div class="rodape text-right">
+		<button>Salvar</button>
 	</div>
 </div>
