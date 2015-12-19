@@ -29,4 +29,4 @@
 
 	// session_set_save_handler
 
-	include "help/site.php";
+	include "help/help.php";
