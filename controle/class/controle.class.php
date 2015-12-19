@@ -6,26 +6,32 @@
 	abstract class Controle
 	{
 		
-		private $read;
+		private $conn;
 
-		private $titulo;
+		public $titulo;
 
 		private $lang;
 
 		public $view;
-	
-		private function getToken()
-		{
-			return  md5(uniqid(rand(), true));
-		}
 
+		public $rota;
+
+		public $token;
+
+		protected function getConn() {
+
+			if( empty( $this->conn ) )
+				$this->conn = new MyPdo();
+
+			return $this->conn;
+		}
 
 		public function render()
 		{
 			ob_start();
 			require $this->view;
 			$pagina = ob_get_contents();
-			$pagina = str_replace('</body>', '<input value="'.$this->getToken().'" type="hidden" ></body>', $pagina);
+			$pagina = str_replace('</body>', '<input value="'.Session::token().'" type="hidden" ></body>', $pagina);
 			ob_end_clean();
 			echo $pagina;
 		}
@@ -38,7 +44,7 @@
 			$arquivo = URL_ASSETS . "/";
 
 			if( strpos( $asset, ".css") == true  ){
-				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$arquivo}css/{$asset}\">";				
+				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$arquivo}css/{$asset}\">";
 			}
 			elseif( strpos( $asset, ".js") == true ){
 				echo "<script type=\"text/javascript\" src=\"{$arquivo}js/{$asset}\" ></script>";
