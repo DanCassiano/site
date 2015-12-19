@@ -7,7 +7,17 @@
  */
 class Session
 {
+	public static function token( ){
+		if( empty( $_SESSION['token'] ) )
+			$_SESSION['token'] = self::getToken();
+
+		return $_SESSION['token'];
 	}
+
+	private function getToken() {
+		return  md5(uniqid(rand(), true));
+	}
+
 	public static function get( $chave ) {
 		return $_SESSION[ $chave ];
 	}
