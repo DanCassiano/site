@@ -7,6 +7,7 @@
  */
 class Session
 {
+	}
 	public static function get( $chave ) {
 		return $_SESSION[ $chave ];
 	}
