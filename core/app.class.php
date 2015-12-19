@@ -21,13 +21,15 @@ class App
 		self::registrar( "DS", DIRECTORY_SEPARATOR );
 
 		/** PASTA COM OS CONTROLES */
-		self::registrar('PASTA_CONTROLE', dirname(__DIR__) . DS . "controle" );	
+		self::registrar('PASTA_CONTROLE', dirname(__DIR__) . DS . "controle" );
 
 		/** PASTA COM OS ASSETS */
-		self::registrar('PASTA_ASSETS', dirname(__DIR__) . DS . "assets" );	
+		self::registrar('PASTA_ASSETS', dirname(__DIR__) . DS . "assets" );
 
 		/** PASTA COM OS ASSETS */
-		self::registrar('URL_ASSETS', "http://localhost/site/assets" );	
+		self::registrar('URL_ASSETS', "http://localhost/site/assets" );
+
+		self::registrar('URL_BASE', "http://localhost/site/" );
 
 		self::getControle();
 
@@ -42,7 +44,7 @@ class App
 		if( is_array( $url ) ) {
 
 			if( !empty( $url['path'] ) )
-				self::$rota = explode( "/", trim( $url['path'] , '/') );				
+				self::$rota = explode( "/", trim( $url['path'] , '/') );
 		}		
 	}
 
@@ -60,8 +62,14 @@ class App
 				$classe = "QuatroZeroQuatro";
 		}
 
-		self::$pagina = new $classe;
-		self::$pagina->init();
-		self::$pagina->render();
+		try {
+		
+			self::$pagina = new $classe( self::$rota );
+			self::$pagina->init();
+			self::$pagina->render();
+			
+		} catch (Exception $e) {
+			var_dump( $e );
+		}
 	}
 }
