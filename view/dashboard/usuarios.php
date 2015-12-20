@@ -56,24 +56,43 @@
 		</div>
 	</header>
 	<div class="corpo">
-		<div class="row">
-			<label for="inputUsuaro">Usuário</label>
-			<input type="text" id="inputUsuaro">
-		</div>
-		<div class="row">
-			<label for="inputEmail">E-mail</label>
-			<input type="text" id="inputEmail">
-		</div>
-		<div class="row">
-			<label for="inputSenha">Senha</label>
-			<input type="text" id="inputSenha">
-		</div>
-		<div class="row">
-			<label for="inputConfirmaSenha">Confirmar senha</label>
-			<input type="text" id="inputConfirmaSenha">
-		</div>
+		<form method="POST" id="formSalvaruser" class="row">
+			<div class="col col-7">
+				<div class="row">
+					<label for="inputUsuaro">Usuário</label>
+					<input type="text" id="inputUsuaro">
+				
+					<label for="inputEmail">E-mail</label>
+					<input type="text" id="inputEmail">
+				
+					<label for="inputSenha">Senha</label>
+					<input type="text" id="inputSenha">
+				
+					<label for="inputConfirmaSenha">Confirmar senha</label>
+					<input type="text" id="inputConfirmaSenha">
+				</div>
+			</div>
+			<div class="col col-5">
+				<div class="img-preview">
+					<a href="#alterImagem">Alterar</a>
+					<img src="http://localhost:3000/site/upload/user.png" alt="">
+					<div class="progress-bar">
+						<span class="barra"></span>
+					</div>
+				</div>
+				<input type='file' name='file' value='Cadastrar foto' id="uploadfile" multiple >
+			</div>
+		</form>
 	</div>
 	<div class="rodape text-right">
-		<button>Salvar</button>
+		<button class="btn btn-padrao" id="salvarUsuario" >Salvar</button>
 	</div>
 </div>
+<?php 
+	$this
+		->getAsset('lib/jquery.ui.widget.js')
+		->getAsset('lib/jquery.iframe-transport.js')
+		->getAsset('lib/jquery.fileupload.js')
+		->getAsset('lib/user.js')
+		->getAsset('user.js');
+ ?>
