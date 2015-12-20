@@ -7,11 +7,8 @@
 		private $largura; 
 		private $pasta; 
 
-		function __construct($arquivo, $altura, $largura, $pasta) { 
-			$this->arquivo = $arquivo; 
-			$this->altura = $altura; 
-			$this->largura = $largura; 
-			$this->pasta = $pasta; 
+		function __construct() { 
+		
 		} 
 
 		private function getExtensao() { 
@@ -66,7 +63,14 @@
 				imagedestroy($origem); 
 		} 
 
-		public function salvar(){
+		public function salvar( $arquivo, $altura, $largura, $pasta ){
+
+			$this->arquivo = $arquivo; 
+			$this->altura = $altura; 
+			$this->largura = $largura; 
+			$this->pasta = $pasta; 
+
+
 			$extensao = $this->getExtensao(); 
 			//gera um nome unico para a imagem em funcao do tempo 
 			$novo_nome = time() . '.' . $extensao; 
