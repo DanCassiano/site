@@ -30,3 +30,7 @@
 	// session_set_save_handler
 
 	include "help/help.php";
+
+
+	/** Localizacao das imagens */
+	define("IMAGEM_DIR", "upload/" );
