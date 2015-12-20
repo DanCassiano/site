@@ -69,3 +69,29 @@ a.trigger-menu {
 	left: 10px;
 }
 /*Menu*/
+
+.img-preview {
+	width: 80%;
+	margin: 30px auto;
+	text-align: center;
+	position: relative;
+}
+
+.img-preview a {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 25%;
+	height: 30px;
+	background-color: rgba(255,255,255,.9);
+	color: #000;
+}
+
+.img-preview:hover a {
+	display: inline-block;
+}
+
+#uploadfile {
+	display: none;
+}
