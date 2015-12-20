@@ -2,11 +2,17 @@
 RewriteEngine On
 RewriteBase /site/
 
-RewriteRule ^projeto/(.*)/(.*)$  /site/projeto.php?controle=$1&acao=$2 [L,NC]
 
 RewriteRule ^user/(.*)/(.*)$  /site/controle/user.php?controle=$1&acao=$2 [L,NC]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^upload/(.*)/(.*)$  /site/upload.php [L,NC]
+
+RewriteRule ^projeto/(.*)/(.*)$  /site/projeto.php?controle=$1&acao=$2 [L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule .  /site/index.php [L]
+
 </IfModule>
