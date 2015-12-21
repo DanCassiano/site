@@ -57,16 +57,17 @@
 	</header>
 	<div class="corpo">
 		<form method="POST" id="formSalvaruser" class="row">
+			<input type="hidden" id="inputUserId" name="userid">
 			<div class="col col-7">
 				<div class="row">
 					<label for="inputUsuaro">Usuário</label>
-					<input type="text" id="inputUsuaro">
+					<input type="text" id="inputUsuaro" name="usuario" >
 				
 					<label for="inputEmail">E-mail</label>
-					<input type="text" id="inputEmail">
+					<input type="text" id="inputEmail" name="email">
 				
 					<label for="inputSenha">Senha</label>
-					<input type="text" id="inputSenha">
+					<input type="text" id="inputSenha" name="senha">
 				
 					<label for="inputConfirmaSenha">Confirmar senha</label>
 					<input type="text" id="inputConfirmaSenha">

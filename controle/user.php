@@ -18,10 +18,19 @@
 	}
 	else
 	{
-		if( ACAO  == "autenticar") {
-			$user = new User();
-			if( $user->login( "dan@dan.com.br", "123" ) )
-				header("location: /site");
+		if( CONTORLE == 'user' )
+		{
+			if( ACAO  == "autenticar") {
+				$user = new User();
+				if( $user->login( "dan@dan.com.br", "123" ) )
+					header("location: /site");
+			}
+			elseif( ACAO == "add" ) {
+				$user = new User();
+				$user->add( array( "usuario"=> "joao" ,
+								   "email"=> "joaoasdasd@asasd",
+								   "senha"=>"123",
+								   "ativo"=> 1 ));
+			}
 		}
-		header("location: /site");
 	}

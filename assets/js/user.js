@@ -1,4 +1,4 @@
-	var url = "http://localhost/site/upload/imagem/user";
+var url = "http://localhost/site/upload/imagem/user";
 $(function(){
 
 	$("a[href='#alterImagem']").click(function(e){
