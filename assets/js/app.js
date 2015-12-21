@@ -28,6 +28,16 @@
 			})
 		}
 
+		app.isEmail = function(email){
+			var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
+			var check=/@[w-]+./;
+			var checkend=/.[a-zA-Z]{2,3}$/;
+			if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1))
+				return false;
+			
+			return true;
+		}
+
 	$.fn.DropDown = function( opcoes ){
 
 		var ele = $(this);
@@ -60,11 +70,17 @@
 			$(".mascara").show();
 		});
 
-		ele.find('a[href="#fechar"]').click(function(e){
+		ele
+			.find('a[href="#fechar"]').click(function(e){
+				e.preventDefault();
+				$(".mascara").hide();
+				ele.hide();
+			});
+		ele.find('[dialogo-close]').click(function(e){
 			e.preventDefault();
-			$(".mascara").hide();
 			ele.hide();
-		})
+			$(".mascara").hide();
+		});
 	}
 
 	window.App = new App();
