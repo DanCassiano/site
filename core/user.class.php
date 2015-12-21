@@ -64,4 +64,10 @@
 								WHERE usuarios.`ativo` = :ativo 
 								ORDER BY data_cadastro", "ativo={$ativo}" );
 		}
+
+		public function add( $dados ) {
+			$pdo = $this->getPDO();
+			$dados['senha'] = md5(md5(md5(md5( $dados['senha'] ))));
+			echo $pdo->insert( "usuarios", $dados );
+		}
 	}
