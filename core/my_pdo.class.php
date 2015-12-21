@@ -28,7 +28,11 @@ class MyPdo
 
 	}
 
-
+	/**
+	 * @param  String
+	 * @param  array
+	 * @return [type]
+	 */
 	public function read( $sql, $parametros = null ) {
 
 		if( $this->query( $sql, $parametros ) )
@@ -69,24 +73,28 @@ class MyPdo
 		return true;
 	}
 
-	public function insert(Post $post) {
+	public function insert( $tabela,  $dados ) {
+
 		$this->conn->beginTransaction();
- 
+		$id = 0;
+
 		try {
-			$stmt = $this->conn->prepare(
-				'INSERT INTO posts (title, content) VALUES (:title, :content)'
-			);
- 
-			$stmt->bindValue(':title', $post->getTitle());
-			$stmt->bindValue(':content', $post->getContent());
-			$stmt->execute();
- 
-            $this->conn->commit();
-        }
-        catch(Exception $e) {
-            $this->conn->rollback();
-        }
-    }
+				$chaves = array_keys( $dados );
+				foreach ($chaves as $chave) {
+					$binds .= ":".$chave.", ";
+				}
+				$binds = substr($binds, 0 , -2);
+				$chaves = implode(', ', $chaves );
+				$pdo = $this->conn->prepare("INSERT INTO ".$tabela." ( ".$chaves." ) VALUES ( ".$binds." )");
+				$pdo->execute( $dados );
+				$id = $this->conn->lastInsertId();
+				$this->conn->commit();
+			}
+			catch(Exception $e) {
+				$this->conn->rollback();
+			}
+		return $id;
+	}
 
 
     public function getRowCount(){
