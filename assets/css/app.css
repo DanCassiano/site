@@ -364,6 +364,10 @@ input[type=button] {
 	float: left;
 }
 
+.display-none {
+	display: none;
+}
+
 /*Help*/
 
 .login {
