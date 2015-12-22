@@ -27,9 +27,9 @@
 			}
 			elseif( ACAO == "add" ) {
 				$user = new User();
-				$user->add( array( "usuario"=> "joao" ,
-								   "email"=> "joaoasdasd@asasd",
-								   "senha"=>"123",
+				$user->add( array( "usuario"=> getPOST('usuario') ,
+								   "email"=> getPOST('email', FILTER_VALIDATE_EMAIL ),
+								   "senha"=>getPOST('senha'),
 								   "ativo"=> 1 ));
 			}
 		}
