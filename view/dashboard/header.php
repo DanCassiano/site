@@ -10,7 +10,7 @@
 		<div class="corpo">
 			<a href="#<?php echo $d['usuario'] ?>"><?php echo $d['usuario'] ?></a>
 			<hr>
-			<a href="user/logoff/<?php echo $this->token ?>">Sair</a>
+			<a href="<?php echo URL_BASE ?>user/logoff/<?php echo $this->token ?>">Sair</a>
 		</div>
 	</div>
 </div>
