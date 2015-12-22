@@ -33,10 +33,16 @@ $(function(){
 	});
 
 	var v = $("#formSalvaruser").validate({
-			submitHandler: function(form) {
-				user.add( $(form).serialize(), function(dados){	});
-			}
-		});
+				submitHandler: function(form) {
+					user.add( $(form).serialize(), function(dados){ v.resetForm(); });
+				},
+				rules: {
+					email: {
+						required: true,
+						email: true
+					}
+				}
+			});
 
 	$('#superScroll').enscroll({
 		verticalTrackClass: 'track4',
