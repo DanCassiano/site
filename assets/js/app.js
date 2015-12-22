@@ -60,7 +60,8 @@
 			$('body').append( $("<div></div>", { "class": "mascara" } ) );
 		}
 		var padrao = {
-			trigger: $("[data-trigger]")
+			trigger: $("[data-trigger]"),
+			open: function(){}
 		}
 		var op = $.extend({}, padrao, opcoes );
 
@@ -68,21 +69,24 @@
 			e.preventDefault();
 			ele.show();
 			$(".mascara").show();
+			
+			op.open( this, ele );
 		});
 
-		ele
-			.find('a[href="#fechar"]').click(function(e){
-				e.preventDefault();
-				$(".mascara").hide();
-				ele.hide();
-			});
+		ele.find('a[href="#fechar"]').click(function(e){
+			e.preventDefault();
+			$(".mascara").hide();
+			ele.hide();
+		});
+		
 		ele.find('[dialogo-close]').click(function(e){
 			e.preventDefault();
 			ele.hide();
 			$(".mascara").hide();
 		});
+
+		return ele;
 	}
 
 	window.App = new App();
-
 })(jQuery);
