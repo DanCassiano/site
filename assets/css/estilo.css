@@ -1,4 +1,10 @@
 
+body {
+	background-image: url(../imagens/1450764775_Rocket.svg);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: 40%;
+}
 
 
 .janela-board {
