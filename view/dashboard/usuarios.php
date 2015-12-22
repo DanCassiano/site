@@ -68,15 +68,15 @@
 				</div>
 				<div class="row">
 					<label for="inputEmail">E-mail</label>
-					<input type="text" id="inputEmail" name="email" class="required" title="informe um E-mail válido!" >
+					<input type="email" id="inputEmail" name="email" class="required" required title="informe um E-mail válido!" >
 				</div>
 				<div class="row">
 					<label for="inputSenha">Senha</label>
-					<input type="text" id="inputSenha" name="senha" class="required" minlength "6" >
+					<input type="password" id="inputSenha" name="senha" class="required" minlength "6" >
 				</div>
 				<div class="row">
 					<label for="inputConfirmaSenha">Confirmar senha</label>
-					<input type="text" id="inputConfirmaSenha" class="required" minlength "6">
+					<input type="password" id="inputConfirmaSenha" class="required" minlength "6">
 				</div>
 			</div>
 			<div class="col col-5">
