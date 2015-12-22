@@ -10,11 +10,12 @@
 }
 
 body {
-	/*background-image: url(../imagens/background-tile.png);*/
+	background-image: url(../imagens/background.png);
+
 	/*background-color: #4285F4;*/
 	/*background-color: #55ACEE;*/
-	background-color: #55ACEE;
-	
+	/*background-color: #55ACEE;*/
+
 }
 
 
@@ -373,7 +374,17 @@ input[type=button] {
 
 .login {
 	width: 320px;
-	margin: 10% auto;
+	margin: 0 auto;
+}
+
+.rocket {
+	width: 128px;
+	margin: 0 auto;
+}
+
+.rocket.login {
+	margin-top: 10%;
+	margin-bottom: 20px;
 }
 
 
