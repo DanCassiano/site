@@ -22,7 +22,7 @@
 		{
 			if( ACAO  == "autenticar") {
 				$user = new User();
-				if( $user->login( "dan@dan.com.br", "123" ) )
+				$user->login( getPOST('login') , getPOST("senha") );
 					header("location: /site");
 			}
 			elseif( ACAO == "add" ) {
