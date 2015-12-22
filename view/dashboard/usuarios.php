@@ -51,7 +51,7 @@
 	</div>
 </div>
 
-<div class="card card-padrao" id="dialogoUser" data-dialogo=true>
+<div class="card card-padrao" id="dialogoUser" >
 	<header>
 		Usuário
 		<div class="controle right">
