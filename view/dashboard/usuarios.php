@@ -41,7 +41,12 @@
 								<td><?php echo $user['usuario'] ?></td>
 								<td><?php echo $user['email'] ?></td>
 								<td><?php echo $user['data_cadastro'] ?></td>
-								<td><a href="#edit" data-trigger='#dialogoUser'><i class="fa fa-pencil-square-o"></i>Editar</a></td>
+								<td>
+									<a href="#edit" id="<?php echo $ind; ?>" data-trigger='#dialogoUser'>
+										<i class="fa fa-pencil-square-o"></i>
+										Editar
+									</a>
+								</td>
 							</tr>
 						<?php
 					}
@@ -50,7 +55,9 @@
 		</table>
 	</div>
 </div>
-
+<script type="text/javascript">
+	var usuarios = <?php echo json_encode($usuarios) ?>;
+</script>
 <div class="card card-padrao" id="dialogoUser" >
 	<header>
 		Usuário
@@ -60,6 +67,7 @@
 	</header>
 	<div class="corpo">
 		<form method="POST" id="formSalvaruser" class="row">
+
 			<input type="hidden" id="inputUserId" name="userid">
 			<div class="col col-7">
 				<div class="row">
@@ -89,6 +97,7 @@
 				</div>
 				<input type='file' name='file' value='Cadastrar foto' id="uploadfile" multiple >
 			</div>
+			<input type="reset" class="display-none">
 		</form>
 	</div>
 	<div class="rodape text-right">

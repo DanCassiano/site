@@ -32,7 +32,7 @@ $(function(){
 		$("#formSalvaruser").submit();
 	});
 
-	var v = $("#formSalvaruser").validate({
+	 v = $("#formSalvaruser").validate({
 				submitHandler: function(form) {
 					user.add( $(form).serialize(), function(dados){ v.resetForm(); });
 				},
@@ -54,7 +54,16 @@ $(function(){
 	$("#dialogoUser").Dialog({
 		trigger: $("[data-trigger]"),
 		open: function(r) {
-			console.log( r)
+			v.resetForm();
+			if( $(r).attr("id") )
+			{
+				var dado = usuarios[ $(r).attr("id") ];
+					
+					inputUserId.val( dado.Id );
+					inputUsuaro.val(dado.usuario);
+					inputEmail.val(dado.email);
+					inputSenha.val( 123 );
+			}
 		}
 	})
 	
