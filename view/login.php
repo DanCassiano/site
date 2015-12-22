@@ -12,17 +12,14 @@
 		?>
 </head>
 <body>
-	<div class="container app-main">
-
+	<div class="container app-main text-center">
+		<img src="assets/imagens/1450764775_Rocket.svg" class="rocket login">
 		<div class="janela janela-padrao login">
-			<header class="titulo">
-				login
-			</header>
 			<div class="corpo">
 
 				<form action="user/autenticar/login" id="formLogin" method="POST">
 					<div class="row">
-						<label for="inputLogin">Login</label>
+						<label for="inputLogin">E-mail</label>
 						<input type="text" name="login" id="inputLogin" class="anim-input">
 					</div>
 
@@ -37,9 +34,6 @@
 					</div>
 				</form>
 
-			</div>
-			<div class="rodape text-center">
-				
 			</div>
 		</div>
 

@@ -1,9 +1,7 @@
 
 body {
-	background-image: url(../imagens/1450764775_Rocket.svg);
-	background-repeat: no-repeat;
-	background-position: bottom right;
-	background-size: 40%;
+	/*background-image: url(../imagens/1450764775_Rocket.svg);*/
+
 }
 
 
@@ -73,6 +71,8 @@ a.trigger-menu {
 	position: fixed;
 	top: 10px;
 	left: 10px;
+	color: #fff;
+	font-size: 1.5em;
 }
 /*Menu*/
 
@@ -160,4 +160,10 @@ a.trigger-menu {
     background: rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.35);
     box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.rocket.dash {
+	position: fixed;
+	bottom: 5px;
+	right: 10px;
 }
