@@ -17,7 +17,7 @@
 					<th class="t-medium"></th>
 					<th class="t-large">Usuário</th>
 					<th class="t-medium">E-mail</th>
-					<th class="t-medium">Data Cad</th>
+					<th class="t-medium">Data de cadastro</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -41,10 +41,14 @@
 								<td><?php echo $user['usuario'] ?></td>
 								<td><?php echo $user['email'] ?></td>
 								<td><?php echo $user['data_cadastro'] ?></td>
-								<td>
-									<a href="#edit" id="<?php echo $ind; ?>" data-trigger='#dialogoUser'>
+								<td class="text-center" >
+									<a href="#edit" id="<?php echo $ind; ?>" data-trigger='#dialogoUser' class="btn" >
 										<i class="fa fa-pencil-square-o"></i>
 										Editar
+									</a>
+									<a href="#permissoes" id="<?php echo $user['Id']; ?>" data-trigger='#dialogoPermissoes' class="btn">
+										<i class="fa fa-key"></i>
+										Permissoes
 									</a>
 								</td>
 							</tr>
@@ -55,6 +59,11 @@
 		</table>
 	</div>
 </div>
+
+
+
+
+
 <script type="text/javascript">
 	var usuarios = <?php echo json_encode($usuarios) ?>;
 </script>
@@ -89,11 +98,11 @@
 			</div>
 			<div class="col col-5">
 				<div class="img-preview">
-					<a href="#alterImagem">Alterar</a>
+					<!-- <a href="#alterImagem">Alterar</a> -->
 					<img src="<?php echo URL_BASE ?>upload/user.png" alt="">
-					<div class="progress-bar display-none">
+					<!-- <div class="progress-bar display-none">
 						<span class="barra"></span>
-					</div>
+					</div> -->
 				</div>
 				<input type='file' name='file' value='Cadastrar foto' id="uploadfile" multiple >
 			</div>
@@ -105,6 +114,24 @@
 		<button class="btn btn-padrao" id="salvarUsuario"  >Salvar</button>
 	</div>
 </div>
+
+
+<div class="card card-padrao" id="dialogoPermissoes" >
+	<header>
+		Permissões
+		<div class="controle right">
+			<a href="#fechar"><i class="fa fa-times-circle-o fa-3"></i></a>
+		</div>
+	</header>
+	<div class="corpo " id="viewPermissoes" >
+		<img src="<?php echo URL_BASE ?>assets/imagens/ajax-loader.gif" height="16" width="16" alt="">
+	</div>
+	<div class="rodape text-right">
+		<button class="btn btn-padrao">Salvar</button>
+	</div>
+</div>
+
+
 <?php 
 	$this
 		->getAsset('lib/jquery.ui.widget.js')
