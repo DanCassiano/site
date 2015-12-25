@@ -4,6 +4,7 @@
 
 	define("CONTORLE", Url::getURL(1) );
 	define("ACAO", Url::getURL(2));
+	define("FUNCAO",  Url::getURL(3) );
 	
 	if( Url::getURL(3) == Session::token() )
 	{
@@ -11,7 +12,8 @@
 		{
 			if( ACAO == 'logoff')
 			{
-				session_destroy();
+				$user = new User();
+				$user->logoff();
 				header("location: /site/login");
 			}
 		}
@@ -32,5 +34,14 @@
 								   "senha"=>getPOST('senha'),
 								   "ativo"=> 1 ));
 			}
+			elseif( ACAO == "get" ) {
+
+				if( FUNCAO == "permissoes" ) {
+					$user = new User();
+					echo json_encode($user->getPermissoes( 1 ));
+				}
+
+			}
 		}
+		
 	}
