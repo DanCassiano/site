@@ -162,6 +162,11 @@ header .controle.left {
 
 .card .corpo {
 	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .card-menu .menu li {
@@ -186,7 +191,7 @@ header .controle.left {
 
 /*Campos*/
 
-input {
+input:not([type=checkbox]) {
 	padding: 5px 10px;
 	border:1px solid rgba(0,0,0,.2);
 	width: 100%;
@@ -199,6 +204,19 @@ input:hover {
 	border:1px solid rgba(0,0,0,.4);
 }
 
+input[type=checkbox] {
+	padding-left: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-right: 10px;
+	margin-left: 50px;
+}
+
+.corpo input[type=checkbox]:first-child {
+	margin-left: 0;
+}
+
 label {
 	
 	margin-left: 0;
@@ -207,7 +225,8 @@ label {
 
 
 button,
-input[type=button] {
+input[type=button],
+.btn {
 	padding: 6px 10px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -216,10 +235,12 @@ input[type=button] {
 	background-color: #fff;
 	border: 1px solid rgba(0,0,0,.1);
 	cursor: pointer;
+	text-decoration: none;
 }
 
 .btn {
 	margin: 0;
+	color: #000;
 }
 
 .btn.btn-padrao {
@@ -512,3 +533,59 @@ table {
 }
 
 /*Progress Bar*/
+
+
+/*Select*/
+.select {
+	display: inline-block;
+	border:1px solid #c6c6c6;
+	background: #f0f0f0;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+	padding: 1px 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-top: 5px;
+	position: relative;
+}
+
+.select a {
+	color: #000;
+	text-decoration: none;	
+}
+
+.select a .fa {
+	float: right;
+	margin-top: 5px;
+}
+
+.select .select-lista {
+	display: none;
+	position: absolute;
+	left: 0;
+	border:1px solid #c6c6c6;
+	background: #fff;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+}
+
+.select .select-lista li {
+	border-left: 0;
+	border-right: 0;
+	padding:1px 15px 3px 15px;
+	list-style: none;
+	white-space: nowrap;
+}
+
+.select .select-lista li:hover {
+	background: #f0f0f0;
+
+}
+
+.select .select-lista li.select {
+	background: #f0f0f0;
+}
+
+.select .select-lista a {
+	display: inline-block;
+}
+/*Select*/
