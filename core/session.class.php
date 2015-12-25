@@ -30,4 +30,8 @@ class Session
 	{
 		return empty( self::get( $chave ) );
 	}
+
+	public static function destroyToken( ) {
+		unset( $_SESSION['token'] );
+	}
 }
