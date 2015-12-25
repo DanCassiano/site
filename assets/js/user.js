@@ -44,7 +44,7 @@ $(function(){
 				}
 			});
 
-	$('#superScroll').enscroll({
+	$('#superScroll, #viewPermissoes').enscroll({
 		verticalTrackClass: 'track4',
 		verticalHandleClass: 'handle4',
 		minScrollbarLength: 25,
@@ -52,7 +52,7 @@ $(function(){
 	});
 
 	$("#dialogoUser").Dialog({
-		trigger: $("[data-trigger]"),
+		trigger: $("[data-trigger='#dialogoUser']"),
 		open: function(r) {
 			v.resetForm();
 			if( $(r).attr("id") )
@@ -64,6 +64,41 @@ $(function(){
 					inputEmail.val(dado.email);
 					inputSenha.val( 123 );
 			}
+		}
+	})
+
+	$("#dialogoPermissoes").Dialog({
+		trigger: $("a[href='#permissoes']"),
+		open: function(r) {
+			
+
+			user.getPermissoes( $(r).prop("id"),function(d){
+				var html = "";
+				$.each( d,function(i,v){
+					if( v.id_pai == 0 ) {
+						html += '<div class="card card-permissoes card-user-permissao">'+
+									'<div class=" titulo">'+
+										"<input type='checkbox' value='' "+ ( v.ativo == 1 ? "checked" : "" ) +" >"+
+										v.permissao +
+									'</div>'+
+									'<div class="corpo">';
+										
+									$.each( d,function(x,j) {
+											if( j.id_pai == v.id ) {
+
+												html += "<input type='checkbox' value='"+j.id+"' "+ ( j.ativo == 1 ? "checked" : "" ) +"  >"+j.permissao+"</input>";
+											}
+									});
+
+
+						html += 	'</div>'+
+								'</div>';
+					}
+				});
+
+				$("#viewPermissoes").html(html);
+
+			});
 		}
 	})
 	
