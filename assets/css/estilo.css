@@ -167,3 +167,19 @@ a.trigger-menu {
 	bottom: 5px;
 	right: 10px;
 }
+
+#dialogoPermissoes {
+	min-height: 300px;
+}
+
+.card.card-user-permissao {
+	width: 100%;
+}
+
+#viewPermissoes {
+	width: 100% !important;
+}
+
+#viewPermissoes .card-permissoes .corpo input[type=checkbox]:first-child {
+	margin-left: 20px;
+}
