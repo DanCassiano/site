@@ -2,7 +2,8 @@
 SQLyog Ultimate v12.09 (64 bit)
 MySQL - 5.6.17 : Database - app
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -83,6 +84,19 @@ CREATE TABLE `usuarios` (
 /*Data for the table `usuarios` */
 
 insert  into `usuarios`(`id`,`usuario`,`email`,`senha`,`ativo`,`data_cadastro`) values (1,'dan','dan@dan.com.br','1cc39ffd758234422e1f75beadfc5fb2',1,'2015-12-19 00:00:00.000000'),(2,'Jordan','jordan@jordan.caom.br','123',1,'2015-12-19 00:00:00.000000'),(11,'joao','joaoasdasd@asasd','1cc39ffd758234422e1f75beadfc5fb2',1,NULL),(12,'joao','joaoasdasd@asasd','1cc39ffd758234422e1f75beadfc5fb2',1,NULL),(13,'joao','joaoasdasd@asasd','1cc39ffd758234422e1f75beadfc5fb2',1,NULL),(14,'joao','joaoasdasd@asasd','1cc39ffd758234422e1f75beadfc5fb2',1,NULL);
+
+DROP TABLE IF EXISTS `usuario_permissoes`;
+
+CREATE TABLE `usuario_permissoes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `id_permissao` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_user` (`id_user`),
+  KEY `id_permissao` (`id_permissao`),
+  CONSTRAINT `usuario_permissoes_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `usuario_permissoes_ibfk_2` FOREIGN KEY (`id_permissao`) REFERENCES `permissoes` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
