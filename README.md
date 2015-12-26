@@ -12,3 +12,9 @@ ex: http://jsfiddle.net/jstoudt/hY64r/light/
 #Validator
 http://jqueryvalidation.org/
 
+#SASS
+
+https://web-design-weekly.com/2014/06/15/different-sass-output-styles/
+
+http://tableless.com.br/sass-um-outro-metodo-de-escrever-css/
+
