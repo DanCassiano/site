@@ -5,6 +5,8 @@ RewriteBase /site/
 
 RewriteRule ^user/(.*)/(.*)$  /site/controle/user.php?controle=$1&acao=$2 [L,NC]
 
+RewriteRule ^log/(.*)/(.*)$  /site/controle/log.php?controle=$1&acao=$2 [L,NC]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^upload/(.*)/(.*)$  /site/upload.php [L,NC]
