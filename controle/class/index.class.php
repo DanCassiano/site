@@ -2,13 +2,13 @@
 /**
 * Home
 */
-class Home extends Controle
+class Index extends Controle
 {
 	
 	function __construct()
 	{
 		$this->titulo = "Bem Vindo";
-		$this->view = APP_ROOT."/view/home.php";
+		$this->view = APP_ROOT."/view/".TEMA."/index.php";
 	}
 
 	public function init(){		
