@@ -13,6 +13,7 @@
 
 			->getAsset('lib/jquery-1.11.3.min.js');
 		?>
+	<base href="<?php echo URL_BASE ?>">
 </head>
 <body>
 	<div class="container app-main">
