@@ -81,15 +81,16 @@ class MyPdo
 				foreach ($chaves as $chave) {
 					$binds .= ":".$chave.", ";
 				}
-				$binds = substr($binds, 0 , -2);
-				$chaves = implode(', ', $chaves );
-				$pdo = $this->conn->prepare("INSERT INTO ".$tabela." ( ".$chaves." ) VALUES ( ".$binds." )");
+				$binds 	= substr($binds, 0 , -2);
+				$chaves = implode(", ", $chaves );
+				$pdo 	= $this->conn->prepare("INSERT INTO ".$tabela." ( ".$chaves." ) VALUES ( ".$binds." )");
 				$pdo->execute( $dados );
-				$id = $this->conn->lastInsertId();
+				$id 	= $this->conn->lastInsertId();
 				$this->conn->commit();
 			}
-			catch(Exception $e) {
+			catch(PDOException $e) {
 				$this->conn->rollback();
+				var_dump($e->getMessage());
 			}
 		return $id;
 	}
@@ -99,12 +100,16 @@ class MyPdo
 		return $this->query->rowCount();
 	}
 
-	public function setLog($msg, $idUser) { 
- 		
- 		return $this->insert('logs', array(	'hora'				=>date('Y-m-d H:i:s'),
-											'ip' 				=> $_SERVER['REMOTE_ADDR'],
-											'relacionamento'	=> $idUser,
-											'mensagem'			=> mysql_escape_string($msg) ));
+	public function setLog($msg, $sql, $tabela, $idUser) {
+	
+ 			$dados = array(	"hora"	=>date('Y-m-d H:i:s'),
+							"ip" 				=> $_SERVER['REMOTE_ADDR'],
+							"relacionamento"	=> $idUser,
+							"query"				=> addslashes($sql),
+							"tabela"			=> $tabela,
+							"mensagem"			=> mysql_escape_string($msg));
+
+ 		 	$t = $this->insert('logs', $dados );
 	}
 
 	 // Fechando a Connexao
