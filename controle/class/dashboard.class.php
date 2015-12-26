@@ -36,6 +36,6 @@ class Dashboard extends Controle
 		if( file_exists( $modulo ))
 			require $modulo;
 		else
-			trigger_error( "Modulo não encontrado", 01 );
+			$this->gotoControle('dashboard');
 	}
 }
