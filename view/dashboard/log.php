@@ -5,15 +5,6 @@
 			<input type="text" placeholder="Buscar...">
 		</div>
 		<div class="controle right">
-			<select name="" id="filtroLog">
-				<option value="1">Opt 1</option>
-				<option value="2">Opt 2</option>
-				<option value="3">Opt 3</option>
-				<option value="4">Opt 4</option>
-				<option value="5">Opt 5</option>
-			</select>
-		</div>
-		<div class="controle right">
 			<select name="" id="filtroLog2">
 				<option value="1">Opt 10</option>
 				<option value="2">Opt 20</option>
@@ -24,7 +15,20 @@
 		</div>
 	</header>
 	<div class="corpo">
-		
+		<table class="table" id="tabelaLog">
+			<thead> 
+				<tr>
+					<th class="t-medium">Usuário</th>
+					<th class="">Ação</th>
+					<th class="t-large">tabela</th>
+					<th class="t-medium">SQL</th>
+					<th class="t-medium">Data</th>
+					<th>Mensagem</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 	</div>
 </div>
 
