@@ -1,9 +1,11 @@
-<div class="janela janela-dashboard">
-	<header>Paginas</header>
-	<div class="corpo">
-		<?php 
-			var_dump( Url::getURL(2) );
-	 ?>
-	</div>
-</div>
+<?php 
+	$paginas = new Paginas();
+
+	if( !empty( Url::getURL(3) ) &&  Url::getURL(3) == 'editar' ) {
+		require APP_ROOT."/view/dashboard/pagina-edit.php";
+	}
+	else {
+			require APP_ROOT."/view/dashboard/pagina-lista.php";
+		}
+
 
