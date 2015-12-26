@@ -111,6 +111,21 @@ CREATE TABLE `logs` (
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 
+CREATE TABLE `site`.`paginas`(  
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `pagina` VARCHAR(250),
+  `link` VARCHAR(200),
+  `publicado` TINYINT(1) DEFAULT 0,
+  `permitir_view` TINYINT(1) DEFAULT 1,
+  `data_criacao` DATE,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `paginas` (`pagina`, `publicado`, `data_criacao`) VALUES ('Pagina Exemplo', '1', '2015-12-26'); 
+
+ALTER TABLE `site`.`paginas`   
+  ADD COLUMN `id_autor` INT NULL AFTER `data_criacao`;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
