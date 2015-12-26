@@ -18,6 +18,14 @@
 
 		public $token;
 
+		protected $tema;
+
+		protected $header;
+
+		protected $content;
+
+		protected $footer;
+
 		protected function getConn() {
 
 			if( empty( $this->conn ) )
@@ -53,7 +61,23 @@
 		}
 
 		protected function gotoControle( $controle ) {
-			header("location: $controle");
+			header("location: " .URL_BASE. $controle );
+		}
+
+
+		protected function getHeader() {
+			require APP_ROOT."/view/".TEMA."/header.php";
+			return $this;
+		}
+		
+		protected function getContent() {
+			require APP_ROOT."/view/".TEMA."/content.php";
+			return $this;
+		}
+		
+		protected function getFooter() {
+			require APP_ROOT."/view/".TEMA."/footer.php";
+			return $this;
 		}
 		
 	}
