@@ -25,12 +25,14 @@
 	/** HOST*/
 	define("HOST", "localhost");
 
+	// URL absoluta
 	define("URL_DIR", "http://localhost/site");
-
-	// session_set_save_handler
-
-	include "help/help.php";
-
 
 	/** Localizacao das imagens */
 	define("IMAGEM_DIR", "upload/" );
+
+	define("TEMA", 'winer') or die("Tema nao definido");
+
+	include "help/help.php";
+
+	
