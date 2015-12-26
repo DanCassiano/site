@@ -22,7 +22,9 @@
 
 		public function logoff() {
 			$pdo = $this->getPDO();
-			$pdo->setLog( "Logoff usuario " , Session::get("login") );
+			
+			$e = $pdo->setLog( "Logoff usuario " , " ", "usuario", Session::get("login") );
+			
 			unset($_SESSION['login']);
 			Session::destroyToken();
 		}
@@ -31,21 +33,19 @@
 
 			$pdo = $this->getPDO();
 			$msg = "Tentativa de Login : e-mail:{$email}  senha:{$senha} ";
+			$sql = "SELECT id FROM usuarios WHERE email = :email AND senha = :senha AND ativo = 1";
 			$id = 0;
 
 			$senha = md5(md5(md5(md5( $senha ))));
-			$r = $pdo->read( "SELECT id FROM usuarios WHERE email = :email AND senha = :senha AND ativo = 1", 
-							 "email={$email}&senha={$senha}" );
-
+			$r = $pdo->read( $sql,"email={$email}&senha={$senha}" );
 
 			if( $pdo->getRowCount() > 0) {
 				$this->logado = $r[0]['id'];
 				Session::set('login', $this->logado );
 				$msg .= " <strong>Sucesso</strong> ";
 				$id =$r[0]['id'];
-			}
-
-			$pdo->setLog( $msg , $id );
+			}			
+			$pdo->setLog( $msg , $sql,'usuarios', $id );
 			return $this->logado;
 		}
 
@@ -81,6 +81,7 @@
 
 		public function add( $dados ) {
 			$pdo = $this->getPDO();
+			$pdo->setLog( "Adicionando novo usuario " , implode(',', $dados )  , "usuarios", Session::get("login") );
 			$dados['senha'] = md5(md5(md5(md5( $dados['senha'] ))));
 			echo $pdo->insert( "usuarios", $dados );
 		}
