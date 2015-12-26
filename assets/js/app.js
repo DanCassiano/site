@@ -74,6 +74,12 @@
 				var select = $("<div class='select'></div>");
 					$ele.before(select);
 
+					
+					if( $ele.find("option:selected").text() ) {
+						op.texto = $ele.find("option:selected").text();
+						gutter = op.texto.length + 20;
+					}
+					
 					select.html('<a href="#select">'+
 									'<span>'+op.texto+'</span>&nbsp;'+
 									'<i class="fa fa-caret-down"></i>'+
@@ -84,7 +90,7 @@
 
 				var lista = select.find(".select-lista");
 				var width = lista.outerWidth() < 50 ? 50 : lista.outerWidth();
-					select.width( width  );
+					select.width( width + gutter );
 
 				if( op.url == "" ) {
 				
@@ -102,7 +108,8 @@
 				}
 				select.on("click",'a[href="#select"]',function(e){
 					e.preventDefault();
-					lista.toggle();
+					$(".select-lista").hide();
+					lista.show();
 				});
 
 				lista.on('click', 'a',function(e){
