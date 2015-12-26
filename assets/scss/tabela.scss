@@ -61,6 +61,17 @@ table {
 	.t-scheduled {
 		color: $scheduled;
 	}
+
+	.controles * {
+		padding: 4px 7px;
+		color: #000;
+		text-decoration: none;
+		display:inline-block;
+
+		&:first-child {
+			padding-left: 0;
+		}
+	}
 }
 
 /* Small Sizes */

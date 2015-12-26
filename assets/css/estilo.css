@@ -1,7 +1,6 @@
 
 body {
-	/*background-image: url(../imagens/1450764775_Rocket.svg);*/
-
+	background-image: url(../imagens/background.png);
 }
 
 
@@ -39,6 +38,16 @@ body {
 .janela-dashboard {
 	width:90%;
 	margin: 60px auto;
+	margin-bottom: 0;
+}
+
+.board-edit {
+	position: fixed;
+	height: 90%;
+	top:60px;
+	width: 90%;
+	left: 5%;
+	right: 5%;
 }
 
 

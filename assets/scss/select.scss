@@ -11,10 +11,12 @@
 	box-sizing: border-box;
 	margin-top: 5px;
 	position: relative;
+	text-align: left !important;
 	
 	a {
 		color: #000;
 		text-decoration: none;
+		text-align: left !important;
 	
 		.fa {
 			float: right;
@@ -29,6 +31,8 @@
 		border:1px solid #c6c6c6;
 		background: #fff;
 		box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+		text-align: left !important;
+		z-index: 999999;
 	
 		li {
 			border-left: 0;

@@ -24,7 +24,6 @@ $scheduled:#049cdb;
 }
 
 body {
-	background-image: url(../imagens/background.png);
 
 	/*background-color: #4285F4;*/
 	/*background-color: #55ACEE;*/
@@ -36,6 +35,13 @@ body {
 .container{
 	position: relative;
 	margin: auto auto;
+}
+.content {
+	width:80%;
+	max-width:980px;
+	margin-left:auto;
+	margin-right:auto;
+
 }
 /*Container*/
 
