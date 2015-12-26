@@ -98,6 +98,8 @@ CREATE TABLE `usuario_permissoes` (
   CONSTRAINT `usuario_permissoes_ibfk_2` FOREIGN KEY (`id_permissao`) REFERENCES `permissoes` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
+ALTER TABLE `app`.`logs` ADD COLUMN `tabela` VARCHAR(100) NULL AFTER `relacionamento`, ADD COLUMN `sql` TEXT NULL AFTER `tabela`;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
