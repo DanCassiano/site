@@ -24,7 +24,7 @@
 
 			$sql = "SELECT 
 						l.`id`,
-						l.`hora` AS data,
+						DATE_FORMAT(l.`hora`, '%d-%m-%Y %H:%i:%s') AS data,
 						l.`mensagem`,
 						l.`relacionamento`,
 						( 
@@ -32,10 +32,19 @@
 							FROM usuarios 
 							WHERE usuarios.id = l.`relacionamento`
 						) AS usuario,
-						l.`sql`,
+						l.`query`,
 						l.`tabela`
 					FROM LOGS l
-					ORDER BY hora ASC";
+					ORDER BY hora DESC";
 			return $pdo->read($sql);
+		}
+
+		public function getTables(){
+			$pdo = $this->getPDO();
+
+			return $pdo->read("SELECT 
+									DISTINCT(tabela) AS tabela
+								FROM LOGS
+								ORDER BY logs.`id` DESC");
 		}
 	}

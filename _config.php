@@ -14,7 +14,7 @@
 	spl_autoload_register('app_load_class');
 
 	/**nome do Banco */
-	define("BANCO", "app");
+	define("BANCO", "site");
 
 	/**Nome do Usuario	 */
 	define("USUARIO", "root");

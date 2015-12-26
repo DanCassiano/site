@@ -96,9 +96,20 @@ CREATE TABLE `usuario_permissoes` (
   KEY `id_permissao` (`id_permissao`),
   CONSTRAINT `usuario_permissoes_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `usuario_permissoes_ibfk_2` FOREIGN KEY (`id_permissao`) REFERENCES `permissoes` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `app`.`logs` ADD COLUMN `tabela` VARCHAR(100) NULL AFTER `relacionamento`, ADD COLUMN `sql` TEXT NULL AFTER `tabela`;
+CREATE TABLE `logs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `hora` datetime NOT NULL,
+  `ip` varchar(15) COLLATE latin1_general_ci NOT NULL,
+  `relacionamento` varchar(200) COLLATE latin1_general_ci NOT NULL,
+  `tabela` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `sql` text COLLATE latin1_general_ci,
+  `mensagem` text COLLATE latin1_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `hora` (`hora`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -7,12 +7,21 @@
 
 	if( CONTORLE == "log" ) {
 
+		$log = new Log();
 		if( ACAO == "get" ) {
 
 			if( FUNCAO == "user" ) {
 
-				$log = new Log();
 				echo json_encode( $log->get("") );
+			}
+			elseif( FUNCAO == "tabelas" ) {
+				$tabelas = $log->getTables();
+				$retorno = array();
+				foreach( $tabelas as $t )
+				{
+					$retorno[] = array( "value"=> $t['tabela'], "texto"=> $t['tabela'] );
+				}
+				echo json_encode( $retorno );
 			}
 		}
 

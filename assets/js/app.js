@@ -44,23 +44,30 @@
 			texto: "Filtro",
 			open: function(r){},
 			close:function(r){},
-			change:function(r){}
+			change:function(r){},
+			url: "",
+			data:"",
+			dados:[]
 		}
-
+		
 		return $(this).each(function(){
 				
 				var $ele = $(this);
 					$ele.hide();
-
 				var op = $.extend({}, padrao, opcoes );
-				var dados = [],
-					htmlLista = "";
+				var htmlLista = "";
 
-					$.each( $ele.find("option"),function(i,v){
-						dados.push({ "value": $(v).val(), "texto": $(v).text()});
-						htmlLista += "<li class=\"\"><a href=\""+$(v).val()+"\">"+$(v).text()+"</a></li>";
+
+				function renderLista( dados, ele ){
+
+					var htmlLista = "";
+					$.each( dados,function(i,v){
+						htmlLista += "<li class=\"\"><a href=\"" + v.value + "\">" + v.texto + "</a></li>";
 					});
+					$(ele).html( htmlLista );
+				}
 
+					
 					if( $ele.attr('id') == undefined)
 						$ele.attr('id', "select"+Math.floor(Math.random() * 100) );
 
@@ -72,13 +79,27 @@
 									'<i class="fa fa-caret-down"></i>'+
 								'</a>'+
 								'<div class="select-lista">'+
-									'<ul>'+	htmlLista+'</ul>'+
+									'<ul></ul>'+
 								'</div>');
 
 				var lista = select.find(".select-lista");
 				var width = lista.outerWidth() < 50 ? 50 : lista.outerWidth();
 					select.width( width  );
 
+				if( op.url == "" ) {
+				
+					$.each( $ele.find("option"),function(i,v){
+						op.dados.push({ "value": $(v).val(), "texto": $(v).text()});
+					});
+					renderLista(op.dados, lista.find("ul"));
+				}
+				else {
+					$.post(op.url,op.data,null,'json')
+					 .done(function(r){
+						renderLista(r, lista.find("ul"));
+						
+					})
+				}
 				select.on("click",'a[href="#select"]',function(e){
 					e.preventDefault();
 					lista.toggle();
@@ -95,9 +116,11 @@
 							.text( $(this).text() )
 							.attr('href', $(this).attr('href') );
 						lista.hide();
-					});
-			});
 
+						var width = lista.outerWidth() < 50 ? 50 : lista.outerWidth();
+							select.width( width  );
+				});
+			});
 		return $(this);
 	}
 

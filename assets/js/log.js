@@ -3,7 +3,8 @@ $(function(){
 	$("#filtroLog, #filtroLog2").Select({
 		open:function(r){
 
-		}
+		},
+		url: $("base").attr("href")+"log/get/tabelas" 
 	});
 
 	log.get("",function(dados){
@@ -12,9 +13,8 @@ $(function(){
 		$.each(dados,function(i,v){
 			html += "<tr>"+
 						"<td>"+v.usuario+"</td>"+
-						"<td>"+v.acao+"</td>"+
 						"<td>"+v.tabela+"</td>"+
-						"<td>"+v.sql+"</td>"+
+						"<td>"+v.query+"</td>"+
 						"<td>"+v.data+"</td>"+
 						"<td>"+v.mensagem+"</td>"+
 					"</tr>";
