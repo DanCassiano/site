@@ -54,7 +54,7 @@ class App
 
 	private static function getControle() {
 
-		$classe = "Home";
+		$classe = "Index";
 		
 		if( !empty( self::$rota[1] ) && self::$rota[1] != "index.php" ){
 			$classe = ucfirst( self::$rota[1] );
