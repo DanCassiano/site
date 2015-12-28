@@ -13,10 +13,6 @@
 
 			$("[data-drop='true']").DropDown();
 			this.__bindMenu();
-
-			// $("[data-dialogo=true]").Dialog({
-			// 	trigger: $("[data-trigger]")
-			// })
 		}
 
 		app.__bindMenu = function(){
@@ -68,8 +64,8 @@
 				}
 
 					
-					if( $ele.attr('id') == undefined)
-						$ele.attr('id', "select"+Math.floor(Math.random() * 100) );
+				if( $ele.attr('id') == undefined)
+					$ele.attr('id', "select"+Math.floor(Math.random() * 100) );
 
 				var select = $("<div class='select'></div>");
 					$ele.before(select);

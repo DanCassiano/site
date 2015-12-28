@@ -6,6 +6,7 @@ class Dashboard extends Controle
 {
 
 	public $servico;
+	public $funcao;
 
 	function __construct( $rota )
 	{
@@ -15,6 +16,7 @@ class Dashboard extends Controle
 		$this->view = APP_ROOT."/view/dashboard/dashboard.php";
 
 		$this->servico = Url::getURL(2);
+		
 
 		if( empty($this->servico) || $this->servico == "dashboard")
 			$this->servico = 'index';
@@ -22,8 +24,10 @@ class Dashboard extends Controle
 
 	public function init(){
 
-		if( empty( Session::get('login') ) )
-			header("location: login");
+		if( empty( Session::get('login') ) && $this->servico != "login"  )
+			$this->gotoControle("dashboard/login");
+		elseif( $this->servico == "login" )
+			$this->gotoControle("dashboard");
 	}
 
 	public function getMenu() {

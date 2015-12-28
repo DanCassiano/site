@@ -14,7 +14,7 @@
 			{
 				$user = new User();
 				$user->logoff();
-				header("location: /site/login");
+				header("location: /site/dashboard/login");
 			}
 		}
 	}
@@ -25,7 +25,7 @@
 			if( ACAO  == "autenticar") {
 				$user = new User();
 				$user->login( getPOST('login') , getPOST("senha") );
-					header("location: /site");
+					header("location: /site/dashboard");
 			}
 			elseif( ACAO == "add" ) {
 				$user = new User();

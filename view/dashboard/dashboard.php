@@ -18,9 +18,12 @@
 <body>
 	<div class="container app-main">
 		<?php 
-			$this->getBoard("menu");
-			$this->getBoard("header");
+			if( $this->servico != "login") {
+				$this->getBoard("menu");
+				$this->getBoard("header");
+			}
 			$this->getBoard( $this->servico );
+			
 		?>
 	</div>
 	<?php 
