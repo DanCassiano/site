@@ -22,8 +22,11 @@
 				$this->getBoard("menu");
 				$this->getBoard("header");
 			}
-			$this->getBoard( $this->servico );
 			
+			if( empty($this->servico) || $this->servico == "index" )
+				$this->getBoard( $this->servico );
+			else
+				$this->getModulo( $this->servico );
 		?>
 	</div>
 	<?php 

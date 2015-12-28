@@ -39,6 +39,14 @@ class Dashboard extends Controle
 		$modulo = APP_ROOT."/view/dashboard/{$tela}.php";
 		if( file_exists( $modulo ))
 			require $modulo;
+		// else
+			// $this->gotoControle('dashboard');
+	}
+
+	public function getModulo( $tela ) {
+		$modulo = APP_ROOT."/view/dashboard/{$tela}/{$tela}.php";
+		if( file_exists( $modulo ))
+			require $modulo;
 		else
 			$this->gotoControle('dashboard');
 	}
