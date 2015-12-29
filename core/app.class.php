@@ -2,6 +2,7 @@
 
 /**
 * App
+* @autor Jordan Cassiano
 */
 class App
 {
@@ -12,8 +13,20 @@ class App
 
 	private static $pagina;
 
+	/**
+	 * Funcao de inicializacao
+	 * @return void
+	 */
 	public static function init() {
 		
+		/** @var string rota controladora */
+		$tema = Url::getURL(1);
+
+		if( $tema == "dashboard")
+			$tema = "view/".$tema;
+		else
+			$tema = "view/".TEMA;
+
 		/*** Pegando os dados da url */
 		self::setRota( self::getSlug() );
 
@@ -24,10 +37,10 @@ class App
 		self::registrar('PASTA_CONTROLE', dirname(__DIR__) . DS . "controle" );
 
 		/** PASTA COM OS ASSETS */
-		self::registrar('PASTA_ASSETS', dirname(__DIR__) . DS . "assets" );
+		self::registrar('PASTA_ASSETS', dirname(__DIR__) . DS . $tema . "/assets" );
 
 		/** PASTA COM OS ASSETS */
-		self::registrar('URL_ASSETS', "http://localhost/site/assets" );
+		self::registrar('URL_ASSETS', "http://localhost/site/".$tema."/assets" );
 
 		self::registrar('URL_BASE', "http://localhost/site/" );
 
@@ -35,10 +48,15 @@ class App
 
 	}
 
+	/** Cria define para o sistema */
 	private static function registrar( $var, $valor ) {
 		define( $var, $valor ) or die( "Nao foi possivel registrar {$var}");
 	}
 
+	/**
+	 * Setando as rotas do Sistema
+	 * @param string $url string vinda da url
+	 */
 	private static function setRota( $url ) {
 		
 		if( is_array( $url ) ) {
@@ -48,10 +66,12 @@ class App
 		}		
 	}
 
+	/** Slug do sistema */
 	private static function getSlug(){
 		return @parse_url( $_SERVER['REQUEST_URI'] );
 	}
 
+	/** Funcao para buscar um determinado controle */
 	private static function getControle() {
 
 		$classe = "Index";

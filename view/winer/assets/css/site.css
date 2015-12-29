@@ -1,0 +1,47 @@
+
+.topo {
+	height: 340px;
+	background-image: url(../../assets/imagens/background.png);
+}
+
+.topo-controle {
+	padding-top: 40px;
+}
+
+.row-menu {
+	margin-left: 0;
+	margin-right: 0;
+	line-height: 30px;
+	background-color: #fff;
+	margin-top: 20px;
+	padding: 10px 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.row-menu li {
+	list-style: none;
+	display: inline-block;
+	padding: 5px 12px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.row-menu li a {
+	text-decoration: none;
+	color: #000;
+}
+
+.conteudo {
+	min-height: 200px;
+	
+}
+
+.footer {
+	min-height: 340px;
+	background-color: #3B3B3A;
+	margin-right: 0;
+	margin-left: 0;
+}

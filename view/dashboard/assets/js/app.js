@@ -52,6 +52,7 @@
 					$ele.hide();
 				var op = $.extend({}, padrao, opcoes );
 				var htmlLista = "";
+				var gutter=0;
 
 
 				function renderLista( dados, ele ){
