@@ -3,7 +3,7 @@ $corPrimaria: #fff;
 
 $sombraPadrao: 0 2px 2px 0 rgba(0,0,0,0.12);
 
-$backgroudColorTitulo: rgb(249,249,252);
+$backgroudColorTitulo: #E6E8EB; //rgb(249,249,252);
 
 $active: #46a546;
 
@@ -12,6 +12,20 @@ $inactive:#e00300;
 $draft:#f89406;
 
 $scheduled:#049cdb;
+
+@mixin border-radius() {
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+      -ms-border-radius: 2px;
+          border-radius: 2px;
+}
+
+@mixin border-top-radios() {
+	 -webkit-border-radius: 2px 2px 0px 0px;
+     -moz-border-radius: 2px 2px 0px 0px;
+      -ms-border-radius: 2px 2px 0px 0px;
+          border-radius: 2px 2px 0px 0px;
+}
 
 
 * {
@@ -42,6 +56,11 @@ body {
 	margin-left:auto;
 	margin-right:auto;
 
+}
+
+.error {
+	background-color: blue;
+	color:#000;
 }
 /*Container*/
 

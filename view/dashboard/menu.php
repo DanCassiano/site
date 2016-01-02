@@ -1,12 +1,12 @@
 <a href="#menu" class="trigger-menu">
-	<i class="fa fa-bars"></i>
+	<i class="fa fa-cube"></i>
 </a>
-<div class="card card-menu off-canvas" id="canvasMenu">
+<div class="card card-menu menu-dash seta-baixo" id="canvasMenu" style="display:none">
 	<header class="titulo ">
-		<a href="#menu">
-			<i class="fa fa-bars"></i>
-		</a>
-		Menu
+		<i class="fa fa-search bind-seach"  ></i>
+		<div class="controle left">
+			<input type="search" id="inputBusca" style="display:none">
+		</div>
 	</header>
 	<div class="corpo">
 		<ul class="menu">
@@ -19,6 +19,11 @@
 						$icone = "fa-fort-awesome";
 					elseif( $menu['Id'] == 5 )
 						$icone = "fa-male";
+					elseif( $menu['Id'] == 9 )
+						$icone = "fa-user-secret";
+					elseif( $menu['Id'] == 11 )
+						$icone = "fa-film";
+
 					?>
 						<li>
 							<i class="fa <?php echo $icone ?>"></i>

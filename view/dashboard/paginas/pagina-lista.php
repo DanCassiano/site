@@ -2,7 +2,7 @@
 	<header>
 		Paginas
 		<div class="controle right">
-			<a href="#novo" data-trigger='#dialogoUser' ><i class="fa fa-plus"></i>Nova Pagina</a>
+			<a href="<?php echo URL_BASE.'dashboard/paginas/nova'?>" data-trigger='#dialogoUser' class="btn btn-sucesso" ><i class="fa fa-plus"></i>Nova Pagina</a>
 		</div>
 		<div class="controle right">
 			<input type="text" placeholder="Buscar...">

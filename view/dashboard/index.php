@@ -1,1 +1,1 @@
-<img src="assets/imagens/1450764775_Rocket.svg" class="rocket dash">
+<img src="view/dashboard/assets/imagens/1450764775_Rocket.svg" class="rocket dash">

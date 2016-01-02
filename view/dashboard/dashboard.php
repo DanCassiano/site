@@ -11,7 +11,10 @@
 			->getAsset('app.css')
 			->getAsset('estilo.css')
 
-			->getAsset('lib/jquery-1.11.3.min.js');
+			->getAsset('lib/jquery-1.11.3.min.js')
+			->getAsset('lib/enscroll-0.6.1.min.js')
+			->getAsset('lib/jquery.validate.min.js')
+			->getAsset('lib/localization/messages_pt_BR.min.js');
 		?>
 	<base href="<?php echo URL_BASE ?>">
 </head>

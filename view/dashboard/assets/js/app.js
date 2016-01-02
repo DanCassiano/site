@@ -19,9 +19,24 @@
 
 			$("a[href='#menu']").click(function(e){
 				e.preventDefault();
-				$("#canvasMenu").toggleClass('off-canvas');
-				$("#canvasMenu").toggleClass('on-canvas');
+				// $("#canvasMenu").toggleClass('off-canvas');
+				// $("#canvasMenu").toggleClass('on-canvas');
+				 $("#canvasMenu").fadeToggle('fast')
 			})
+
+			$(".bind-seach").click(function(){
+				$("#inputBusca")
+					.show('slow')
+					.focus();
+			});
+
+			$(document).keyup(function(e) {
+
+				if (e.keyCode == 27) {
+					if( $("#canvasMenu").css("display") != 'none')
+						$("#canvasMenu").fadeToggle('fast');
+				}
+			});
 		}
 
 		app.isEmail = function(email){
@@ -46,13 +61,15 @@
 			dados:[]
 		}
 		
+
+
 		return $(this).each(function(){
 				
 				var $ele = $(this);
 					$ele.hide();
 				var op = $.extend({}, padrao, opcoes );
 				var htmlLista = "";
-				var gutter=0;
+				var gutter=10;
 
 
 				function renderLista( dados, ele ){
@@ -87,7 +104,7 @@
 
 				var lista = select.find(".select-lista");
 				var width = lista.outerWidth() < 50 ? 50 : lista.outerWidth();
-					select.width( width + gutter );
+					// select.width( width + gutter );
 
 				if( op.url == "" ) {
 				
@@ -105,8 +122,8 @@
 				}
 				select.on("click",'a[href="#select"]',function(e){
 					e.preventDefault();
-					$(".select-lista").hide();
-					lista.show();
+					// $(".select-lista").hide();
+					lista.toggle();
 				});
 
 				lista.on('click', 'a',function(e){

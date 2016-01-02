@@ -2,22 +2,22 @@
 	<header>
 		Editar
 	</header>
-	<div class="corpo">
+	<div class="corpo" id="scrollConteudo">
 
-		<div class="col col-8">
-			<form action="">
+		<div class="col col-8" >
+			<form action="" id="formPagina">
 				<div class="row">
 					<label for="inputPagina">Titulo</label>
-					<input type="text" placeholder="Minha Pagina Nova" >
+					<input type="text" id="inputPagina" name="titulo" placeholder="Minha Pagina Nova" require="true" >
 				</div>
 				<div class="row">
-					<label for="inputPagina">Link</label>
-					<input type="url"  >
+					<label for="link">Link</label>
+					<input type="url" id="link" name="link" placeholder="<?php echo URL_BASE."minha-pagina" ?>" >
 				</div>
 				<div class="row">
 					<label for="textConteudo">Conteudo</label>
 					<br/>
-					<textarea>Easy (and free!) You should check out our premium features.</textarea>
+					<textarea name="textConteudo">Easy (and free!) You should check out our premium features.</textarea>
 				</div>
 			</form>
 		</div>
@@ -25,6 +25,16 @@
 			<div class="card card-padrao card-block">
 				<header>Propriedades</header>
 				<div class="corpo">
+					<div class="row">
+						<p>
+							<i class="fa fa-calendar-check-o"></i>
+							Publicada em:
+							<div class="text-right">
+								 12-12-2016
+							</div>
+						</p>
+					</div>
+
 					<div class="row">
 						<label for="selectPublicado">
 							<i class="fa fa-key"></i>
@@ -49,20 +59,12 @@
 							</select>
 						</div>
 					</div>
-					<div class="row">
-						<p>
-							<i class="fa fa-calendar-check-o"></i>
-							Publicada em:
-							<div class="text-right">
-								 12-12-2016
-							</div>
-						</p>
-					</div>
+					
 
 					<div class="row">
 						<label for="selectPai"><i class="fa fa-child"></i> Pertence a:</label>
 						<div class="text-right">
-							<select name="" id="">
+							<select name="" id="selectPai" class="filtroPost" >
 								<option value="0">--</option>
 							</select>
 						</div>
@@ -84,7 +86,7 @@
 		</div>
 	</div>
 	<div class="rodape text-right">
-		<button class="btn btn-padrao"> Salvar</button>
+		<button class="btn btn-padrao" id="btnSalvaPagina"> Salvar</button>
 	</div>
 </div>
 <?php 
@@ -96,7 +98,7 @@
 <script>
 	tinymce.init({ 
 			selector:'textarea',
-			min_height: 220,
+			min_height: 200,
 			menubar: false,
 			skin: "lightgray",
 			 plugins: [
@@ -104,9 +106,9 @@
 						"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
 						"table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
   					],
-  					toolbar1: "undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | cut copy paste |  outdent indent blockquote | ltr rtl",
-					toolbar2: " bullist numlist |  link unlink anchor image media code | insertdatetime preview | forecolor backcolor | table |  hr removeformat ",
-					toolbar3: "subscript superscript | charmap emoticons | print fullscreen | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+  					toolbar1: "code print fullscreen | undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify |  link unlink anchor image media | bullist numlist  ",
+					toolbar2: " insertdatetime preview | forecolor backcolor | table |  hr removeformat |charmap emoticons | visualchars visualblocks nonbreaking template pagebreak ",
+					// toolbar3: "  ",
 					toolbar_items_size: 'small',
 					style_formats: [{
 							title: 'Bold text',
@@ -147,4 +149,11 @@
 						content: 'Test 2'
 					}],
 		});
+
+// $('#scrollConteudo').enscroll({
+// 		verticalTrackClass: 'track4',
+// 		verticalHandleClass: 'handle4',
+// 		minScrollbarLength: 25,
+// 		addPaddingToPane: 10
+// 	});
 </script>
