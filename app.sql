@@ -126,6 +126,16 @@ INSERT INTO `paginas` (`pagina`, `publicado`, `data_criacao`) VALUES ('Pagina Ex
 ALTER TABLE `site`.`paginas`   
   ADD COLUMN `id_autor` INT NULL AFTER `data_criacao`;
 
+DROP TABLE IF EXISTS `media`;
+  CREATE TABLE `site`.`media`(  
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `media` VARCHAR(150),
+  `tipo` INT COMMENT '1: imagens 2: audios 3:videos',
+  `diretorio` VARCHAR(100),
+  `data_adicao` DATETIME ,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
